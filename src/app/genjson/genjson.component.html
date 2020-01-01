@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form [formGroup]="myForm">
+
+                <div formArrayName="phones">
+
+                    <div *ngFor="let phone of phoneForms.controls; let i=index" [formGroupName]="i">
+
+                        <input formControlName="area">
+                        <input formControlName="prefix">
+                        <input formControlName="line">
+
+                        <button (click)="deletePhone(i)">Delete</button>
+
+                    </div>
+                </div>
+
+                <button (click)="addPhone()">Add Phone Number</button>
+
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <pre> {{myForm.value | json}} </pre>
+        </div>
+    </div>
+</div>
